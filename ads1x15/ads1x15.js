@@ -16,30 +16,37 @@ module.exports = function (RED) {
         this.samplesPerSecond = n.samplesPerSecond || '250';
         this.progGainAmp = n.progGainAmp || '4096';
 
-     //   var adc = new ads1x15(chip, address, i2c_dev);
+        //   var adc = new ads1x15(chip, address, i2c_dev);
 
 
 
         node.on("input", function (msg) {
 
             var reading = 0;
-            // if (!adc.busy) {
-            //     adc.readADCSingleEnded(channel, progGainAmp, samplesPerSecond, function (err, data) {
-            //         if (err) {
-            //             throw err;
-            //         }
-            //         reading = data;
-            //     });
-            // }
+            if (!adc.busy) {
+                readADC();
+            } else {
+                node.status({ fill: "yellow", shape: "dot", text: "Waiting" });
+            }
 
-            node.send({
-                payload: JSON.stringify(this)
-            });
+
         });
 
         node.on("close", function () {
             //   node.port.free();
         });
+
+        function readADC() {
+            adc.readADCSingleEnded(this.channel, this.progGainAmp, this.samplesPerSecond, function (err, data) {
+                if (err) {
+                    node.status({ fill: "red", shape: "dot", text: "Error" });
+                }
+                node.status({ fill: "green", shape: "dot", text: "Read" });
+                node.send({
+                    payload: data
+                });
+            });
+        }
     }
     RED.nodes.registerType("ads1x15", ads1x15Node);
 }
