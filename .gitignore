@@ -1,0 +1,10 @@
+node_modules
+public
+.tmp
+.vscode
+.idea
+.nodered
+debug
+dist
+npm-debug.log
+debug.log
