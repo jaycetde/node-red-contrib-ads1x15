@@ -1,6 +1,6 @@
 module.exports = function (RED) {
     "use strict";
-    //  var ads1x15 = require("node-ads1x15");
+     var ads1x15 = require("node-ads1x15");
 
     // The Output Node
     function ads1x15Node(n) {
@@ -16,7 +16,7 @@ module.exports = function (RED) {
         this.samplesPerSecond = n.samplesPerSecond || '250';
         this.progGainAmp = n.progGainAmp || '4096';
 
-        //   var adc = new ads1x15(chip, address, i2c_dev);
+        var adc = new ads1x15(this.chip, this.address, this.i2c_dev);
 
 
 
@@ -37,7 +37,7 @@ module.exports = function (RED) {
         });
 
         function readADC() {
-            adc.readADCSingleEnded(this.channel, this.progGainAmp, this.samplesPerSecond, function (err, data) {
+            adc.readADCSingleEnded(node.channel, node.progGainAmp, node.samplesPerSecond, function (err, data) {
                 if (err) {
                     node.status({ fill: "red", shape: "dot", text: "Error" });
                 }
