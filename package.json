@@ -17,6 +17,7 @@
     "node-ads1x15": "^1.0.0"
   },
   "author": "Cinqueon Inc.",
+  "homepage": "www.cinqueon.com",
   "license": "MIT",
   "node-red": {
     "nodes": {
