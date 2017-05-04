@@ -1,15 +1,21 @@
 {
   "name": "node-red-contrib-ads1x15",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node-Red node for ADS1015 and ADS1115 I2C ADC",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cinqueon/node-red-contrib-ads1x15"
   },
   "keywords": [
     "node-red",
     "adc",
-    "i2c"
+    "i2c",
+    "ads1115",
+    "ads1015"
   ],
+  "dependencies": {
+    "node-ads1x15": "^1.0.0"
+  },
   "author": "Cinqueon Inc.",
   "license": "MIT",
   "node-red": {
