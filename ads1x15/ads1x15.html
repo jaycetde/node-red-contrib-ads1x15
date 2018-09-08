@@ -78,7 +78,13 @@
 </script>
 
 <script type="text/x-red" data-help-name="ads1x15">
-    <p>Reads data from a ads1x15.</p>    
+    <p>Reads data from a ads1x15. 
+        
+        Note that sometimes the reading can overlap and you will get the same data for different nodes. 
+        Just add a delay on reading the values and you will get what you want.
+    
+
+    </p>    
     <h3>Options</h3>
      <ul>
          <li>Chip</li>
@@ -86,7 +92,14 @@
          <li>ADS address</li>
          <li>Channel</li>
          <li>Samples Per Second</li>
-         <li>Gain</li>
+         <li>Gain:
+                6144 : 6.144V,
+                4096 : 4.096V,
+                2048 : 2.048V,
+                1024 : 1.024V,
+                512  : 0.512V,
+                256  : 0.256V
+         </li>
      </ul>
 </script>
 
