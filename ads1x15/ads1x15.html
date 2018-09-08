@@ -18,7 +18,12 @@
     </div>
     <div class="form-row">
         <label for="node-input-address"><i class="fa fa-user"></i> Address</label>
-        <input type="text" id="node-input-address" placeholder="0x48">
+        <select id="node-input-address">
+            <option value="72" >0x48 (GND)</option>
+            <option value="73" >0x49 (VDD)</option>
+            <option value="74" >0x50 (SDA)</option>
+            <option value="75" >0x51 (SCL)</option>
+        </select>
     </div>
 
     <div class="form-row">
@@ -90,8 +95,8 @@
         category: 'input',
         defaults: {
             name: { name: "" },
-            chip: { value: 0 },
-            address: { value: 0x48 },
+            chip: { value: 0 }, //0 - 1015, 1 - 1115
+            address: { value: 71 },
             i2c_dev: { value: '/dev/i2c-1' },
             channel: { value: 0 },
             samplesPerSecond: { value: '250' },
@@ -108,13 +113,16 @@
             return this.name ? "node_label_italic" : "";
         },
         oneditprepare: function () {
+            //populate the samples per second dropdown based on the selected chip.
             var chip = $("#node-input-chip").val();
-            chip == "0" ? (
-                $("#input-samplesPerSecond0").val(this.samplesPerSecond)
+            //If the chip is a 1115, pick samples 1 (which are for that chip)
+            chip == "1" ? (
+                $("#node-input-samplesPerSecond1").val(this.samplesPerSecond)
             ) : (
-                    $("#input-samplesPerSecond1").val(this.samplesPerSecond)
+                    $("#node-input-samplesPerSecond1").val(this.samplesPerSecond)
                 );
             $("#node-input-chip").change(function () {
+                //If the chip is a 1115, pick samples 1 (which are for that chip)
                 var chip = $("#node-input-chip").val();
                 chip == "1" ? (
                     $("#samplesPerSecond0").hide(),
@@ -128,11 +136,12 @@
             });
         },
         oneditsave: function () {
+            //Save the samples per second dropdown based on the selected chip.
             var chip = $("#node-input-chip").val();
             chip == "0" ? (
-                $("#node-input-samplesPerSecond").val($("#input-samplesPerSecond0").val())
+                $("#node-input-samplesPerSecond").val($("#node-input-samplesPerSecond0").val())
             ) : (
-                    $("#node-input-samplesPerSecond").val($("#input-samplesPerSecond1").val())
+                    $("#node-input-samplesPerSecond").val($("#node-input-samplesPerSecond1").val())
                 );
         }
     });
