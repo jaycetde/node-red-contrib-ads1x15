@@ -1,162 +1,159 @@
 <script type="text/x-red" data-template-name="ads1x15">
 
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
 
-    <div class="form-row">
-        <label for="node-input-chip"><i class="fa fa-microchip"></i> Chip</label>
-        <select id="node-input-chip">
-            <option value="0" >ads1015</option>
-            <option value="1" >ads1115</option>
-        </select>
-    </div>
-    <div class="form-row">
-        <label for="node-input-i2c_dev"><i class="fa fa-globe"></i> I2C Device</label>
-        <input type="text" id="node-input-i2c_dev" placeholder="/dev/I2C-1" style="width: 45%;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-address"><i class="fa fa-user"></i> Address</label>
-        <select id="node-input-address">
-            <option value="72" >0x48 (GND)</option>
-            <option value="73" >0x49 (VDD)</option>
-            <option value="74" >0x50 (SDA)</option>
-            <option value="75" >0x51 (SCL)</option>
-        </select>
-    </div>
+  <div class="form-row">
+      <label for="node-input-chip"><i class="fa fa-microchip"></i> Chip</label>
+      <select id="node-input-chip">
+          <option value="0" >ads1015</option>
+          <option value="1" >ads1115</option>
+      </select>
+  </div>
+  <div class="form-row">
+      <label for="node-input-i2c_dev"><i class="fa fa-globe"></i> I2C Device</label>
+      <input type="text" id="node-input-i2c_dev" placeholder="1" style="width: 45%;">
+  </div>
+  <div class="form-row">
+      <label for="node-input-address"><i class="fa fa-user"></i> Address</label>
+      <select id="node-input-address">
+          <option value="72" >0x48 (GND)</option>
+          <option value="73" >0x49 (VDD)</option>
+          <option value="74" >0x50 (SDA)</option>
+          <option value="75" >0x51 (SCL)</option>
+      </select>
+  </div>
 
-    <div class="form-row">
-        <label for="node-input-channel"><i class="fa fa-random"></i> Channel</label>
-        <select id="node-input-channel">
-            <option value="0" >0</option>
-            <option value="1" >1</option>
-            <option value="2" >2</option>
-            <option value="3" >3</option>
-        </select>
-    </div>
+  <div class="form-row">
+      <label for="node-input-channel"><i class="fa fa-random"></i> Channel</label>
+      <select id="node-input-channel">
+          <option value="0" >0</option>
+          <option value="1" >1</option>
+          <option value="2" >2</option>
+          <option value="3" >3</option>
+      </select>
+  </div>
 
-    <div class="form-row" id="samplesPerSecond1">
-        <label for="node-input-samplesPerSecond1"><i class="fa fa-sign-in"></i> Samples Per Second</label>
-        <select id="node-input-samplesPerSecond1">
-            <option value="8">8</option>
-            <option value="16">16</option>
-            <option value="32">32</option>
-            <option value="64">64</option>
-            <option value="128">128</option>
-            <option value="250">250</option>
-            <option value="475">475</option>
-            <option value="860">860</option>
-        </select>
-    </div>
-    <div class="form-row" id="samplesPerSecond0">
-        <label for="node-input-samplesPerSecond0"><i class="fa fa-sign-in"></i> Samples Per Second</label>
-        <select id="node-input-samplesPerSecond0">
-           <option value="128">128</option>
-            <option value="250">250</option>
-            <option value="490">490</option>
-            <option value="920">920</option>
-            <option value="1600">1600</option>
-            <option value="2400">2400</option>
-            <option value="3300">3300</option>
-        </select>
-    </div>
-    <input type="hidden" id="node-input-samplesPerSecond">
-    <div class="form-row">
-        <label for="node-input-progGainAmp"><i class="fa fa-wrench"></i> Gain</label>
-        <select id="node-input-progGainAmp">
-            <option value="6144">6144</option>
-            <option value="4096">4096</option>
-            <option value="2048">2048</option>
-            <option value="1024">1024</option>
-            <option value="512">512</option>
-            <option value="256">256</option>
-        </select>
-    </div>
+  <div class="form-row" id="samplesPerSecond1">
+      <label for="node-input-samplesPerSecond1"><i class="fa fa-sign-in"></i> Samples Per Second</label>
+      <select id="node-input-samplesPerSecond1">
+          <option value="8">8</option>
+          <option value="16">16</option>
+          <option value="32">32</option>
+          <option value="64">64</option>
+          <option value="128">128</option>
+          <option value="250">250</option>
+          <option value="475">475</option>
+          <option value="860">860</option>
+      </select>
+  </div>
+  <div class="form-row" id="samplesPerSecond0">
+      <label for="node-input-samplesPerSecond0"><i class="fa fa-sign-in"></i> Samples Per Second</label>
+      <select id="node-input-samplesPerSecond0">
+         <option value="128">128</option>
+          <option value="250">250</option>
+          <option value="490">490</option>
+          <option value="920">920</option>
+          <option value="1600">1600</option>
+          <option value="2400">2400</option>
+          <option value="3300">3300</option>
+      </select>
+  </div>
+  <input type="hidden" id="node-input-samplesPerSecond">
+  <div class="form-row">
+      <label for="node-input-progGainAmp"><i class="fa fa-wrench"></i> Gain</label>
+      <select id="node-input-progGainAmp">
+          <option value="6144">6144</option>
+          <option value="4096">4096</option>
+          <option value="2048">2048</option>
+          <option value="1024">1024</option>
+          <option value="512">512</option>
+          <option value="256">256</option>
+      </select>
+  </div>
 
-    <!--<div class="form-tips">Scan for connected devices on I2C.</div>-->
+  <!--<div class="form-tips">Scan for connected devices on I2C.</div>-->
 </script>
 
 <script type="text/x-red" data-help-name="ads1x15">
-    <p>Reads data from a ads1x15. 
-        
-        Note that sometimes the reading can overlap and you will get the same data for different nodes. 
-        Just add a delay on reading the values and you will get what you want.
-    
+  <p>Reads data from a ads1x15.
 
-    </p>    
-    <h3>Options</h3>
-     <ul>
-         <li>Chip</li>
-         <li>I2C device</li>
-         <li>ADS address</li>
-         <li>Channel</li>
-         <li>Samples Per Second</li>
-         <li>Gain:
-                6144 : 6.144V,
-                4096 : 4.096V,
-                2048 : 2.048V,
-                1024 : 1.024V,
-                512  : 0.512V,
-                256  : 0.256V
-         </li>
-     </ul>
+      Note that sometimes the reading can overlap and you will get the same data for different nodes.
+      Just add a delay on reading the values and you will get what you want.
+
+
+  </p>
+  <h3>Options</h3>
+   <ul>
+       <li>Chip</li>
+       <li>I2C device</li>
+       <li>ADS address</li>
+       <li>Channel</li>
+       <li>Samples Per Second</li>
+       <li>Gain:
+              6144 : 6.144V,
+              4096 : 4.096V,
+              2048 : 2.048V,
+              1024 : 1.024V,
+              512  : 0.512V,
+              256  : 0.256V
+       </li>
+   </ul>
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('ads1x15', {
-        category: 'input',
-        defaults: {
-            name: { name: "" },
-            chip: { value: 0 }, //0 - 1015, 1 - 1115
-            address: { value: 71 },
-            i2c_dev: { value: '/dev/i2c-1' },
-            channel: { value: 0 },
-            samplesPerSecond: { value: '250' },
-            progGainAmp: { value: '4096' },
-        },
-        color: "red",
-        inputs: 1,
-        outputs: 1,
-        icon: "serial.png",
-        label: function () {
-            return this.name || "ads1x15";
-        },
-        labelStyle: function () {
-            return this.name ? "node_label_italic" : "";
-        },
-        oneditprepare: function () {
-            //populate the samples per second dropdown based on the selected chip.
-            var chip = $("#node-input-chip").val();
-            //If the chip is a 1115, pick samples 1 (which are for that chip)
-            chip == "1" ? (
-                $("#node-input-samplesPerSecond1").val(this.samplesPerSecond)
-            ) : (
-                    $("#node-input-samplesPerSecond1").val(this.samplesPerSecond)
-                );
-            $("#node-input-chip").change(function () {
-                //If the chip is a 1115, pick samples 1 (which are for that chip)
-                var chip = $("#node-input-chip").val();
-                chip == "1" ? (
-                    $("#samplesPerSecond0").hide(),
-                    $("#samplesPerSecond1").show(),
-                    $("#samplesPerSecond1").val('250')
-                ) : (
-                        $("#samplesPerSecond1").hide(),
-                        $("#samplesPerSecond0").show(),
-                        $("#samplesPerSecond0").val('250')
-                    );
-            });
-        },
-        oneditsave: function () {
-            //Save the samples per second dropdown based on the selected chip.
-            var chip = $("#node-input-chip").val();
-            chip == "0" ? (
-                $("#node-input-samplesPerSecond").val($("#node-input-samplesPerSecond0").val())
-            ) : (
-                    $("#node-input-samplesPerSecond").val($("#node-input-samplesPerSecond1").val())
-                );
-        }
-    });
-
+  RED.nodes.registerType("ads1x15", {
+    category: "input",
+    defaults: {
+      name: { name: "" },
+      chip: { value: 0 }, //0 - 1015, 1 - 1115
+      address: { value: 71 },
+      i2c_dev: { value: 1 },
+      channel: { value: 0 },
+      samplesPerSecond: { value: "250" },
+      progGainAmp: { value: "4096" }
+    },
+    color: "red",
+    inputs: 1,
+    outputs: 1,
+    icon: "serial.png",
+    label: function() {
+      return this.name || "ads1x15";
+    },
+    labelStyle: function() {
+      return this.name ? "node_label_italic" : "";
+    },
+    oneditprepare: function() {
+      //populate the samples per second dropdown based on the selected chip.
+      var chip = $("#node-input-chip").val();
+      //If the chip is a 1115, pick samples 1 (which are for that chip)
+      chip == "1"
+        ? $("#node-input-samplesPerSecond1").val(this.samplesPerSecond)
+        : $("#node-input-samplesPerSecond1").val(this.samplesPerSecond);
+      $("#node-input-chip").change(function() {
+        //If the chip is a 1115, pick samples 1 (which are for that chip)
+        var chip = $("#node-input-chip").val();
+        chip == "1"
+          ? ($("#samplesPerSecond0").hide(),
+            $("#samplesPerSecond1").show(),
+            $("#samplesPerSecond1").val("250"))
+          : ($("#samplesPerSecond1").hide(),
+            $("#samplesPerSecond0").show(),
+            $("#samplesPerSecond0").val("250"));
+      });
+    },
+    oneditsave: function() {
+      //Save the samples per second dropdown based on the selected chip.
+      var chip = $("#node-input-chip").val();
+      chip == "0"
+        ? $("#node-input-samplesPerSecond").val(
+            $("#node-input-samplesPerSecond0").val()
+          )
+        : $("#node-input-samplesPerSecond").val(
+            $("#node-input-samplesPerSecond1").val()
+          );
+    }
+  });
 </script>

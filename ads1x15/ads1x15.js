@@ -10,7 +10,7 @@ module.exports = function(RED) {
 
     this.chip = n.chip || 0;
     this.address = parseInt(n.address) || 0x48;
-    this.i2c_dev = n.i2c_dev || "/dev/i2c-1";
+    this.i2c_dev = n.i2c_dev || 1;
 
     this.channel = n.channel || 0;
     this.samplesPerSecond = n.samplesPerSecond || "250";

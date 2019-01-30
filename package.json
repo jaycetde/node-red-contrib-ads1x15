@@ -14,7 +14,7 @@
     "ads1015"
   ],
   "dependencies": {
-    "node-ads1x15": "^1.0.0"
+    "node-ads1x15": "git+https://github.com/jaycetde/node-ads1x15.git"
   },
   "author": "Cinqueon Inc.",
   "homepage": "www.cinqueon.com",
